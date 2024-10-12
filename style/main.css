@@ -1,0 +1,186 @@
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+    font-family: "Cairo", sans-serif;
+}
+:root {
+    --main-color: #2196f3;
+    --section-color: #ececec;
+    --section-padding: 100px;
+    --main-duration: .3s;
+}
+
+/* Start Setting Container Width*/
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Small Screan */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Medium Screan */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large Screan */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Setting Container Width*/
+.control-buttons {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(3, 169, 244, 0.9);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+.control-buttons label {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+.control-buttons span {
+    background-color: #F44336;
+    color: #FFF;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+}
+.control-buttons input {
+    outline: none;
+    border: 2px solid #2196f3;
+    display: block;
+    padding: 10px 5px;
+    font-size: 18px;
+    width: 500px;
+    max-width: 100%;
+}
+
+
+/* ============================================================================== */
+
+.container .game-head {
+    border: 1px solid #2196f3;
+    background-color: #ececec;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .game-head .hello {
+    font-size: 20px ;
+    font-weight: bold;
+}
+.container .game-head .wcount span {
+    color: #c62828;
+}
+.container .cards-wrapper {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    margin: 20px auto;
+    width: 500px;
+    max-width: 100%;
+}
+@media (max-width: 767px) {
+    .container .cards-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 5px;
+    }
+}
+.container .cards-wrapper.no-click {
+    pointer-events: none;
+}
+.container .cards-wrapper .card {
+    position: relative;
+    height: 80px;
+    transition: 1s;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+.container .cards-wrapper .card.clicked,
+.container .cards-wrapper .card.answerd {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
+.container .cards-wrapper .face {
+    width: 100%;
+    height: 100%; 
+    border: 2px solid #2196f3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+.container .cards-wrapper .front {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+.container .cards-wrapper .back {
+    transform: rotateY(180deg);  
+    background-color: #78909C; 
+    padding: 5px; 
+}
+.container .cards-wrapper .back img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+you have ten pics we will show each one twice 
+
+the card has two faces one with quiestion mark and othe with the pic
+the mark face will be shown untill user clicks it the pic will be shown 
+
+user will click two pics if they are the same we keep them shown and increase the score 
+if they are not the same we flip them back and the user try again 
+
+the pics we be put randomly 
+
+
+
+*/
